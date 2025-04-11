@@ -1,12 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
+  let CartItemLength = useSelector ((item)=> item.allCart.cart)
+
+  
   return (
     <nav className=" border-gray-200 dark:bg-black bg-slate-200 shadow-2xl">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
-          to="https://flowbite.com/"
+          to="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <img
@@ -49,7 +54,7 @@ const Navbar = () => {
           <ul className=" font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
             <li>
               <Link
-                to="#"
+                to="/"
                 className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
                 aria-current="page"
               >
@@ -89,7 +94,7 @@ const Navbar = () => {
               </Link>
             </li>
             <Link to="/cart" className="text-white">
-              Current Cart Item : <b>(0)</b>
+              Current Cart Item : <b>({CartItemLength.length})</b>
             </Link>
           </ul>
         </div>
